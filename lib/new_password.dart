@@ -28,7 +28,7 @@ class _NewPasswordState extends State<NewPassword> {
                         bottomRight: Radius.circular(30.0),
                       )
                   ),
-                  child: Center(child: Image(image:AssetImage('images/WhatsApp Image 2021-06-07 at 11.07.10 PM.jpeg')),),
+                  child: Container(child: Center(child: Image(image:AssetImage('images/WhatsApp Image 2021-06-07 at 11.07.10 PM.jpeg')),)),
                 )
             ),
             Expanded(
@@ -48,14 +48,9 @@ class _NewPasswordState extends State<NewPassword> {
                       Container(height:80.0,margin:EdgeInsets.all(15.0),child: FlatButton(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),onPressed: (){}, child:Center(child: Text("Submit",style: TextStyle(color: font,fontSize: 20.0),)),color: Color(0xffffe617),), )
 
                     ],
-
                   ),
-
-
                 )
             ),
-
-
           ],
         ),
       ) ,
