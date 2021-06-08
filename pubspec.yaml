@@ -40,4 +40,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-     - images/WhatsApp Image 2021-06-07 at 11.07.10 PM.jpeg
+     - images/

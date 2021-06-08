@@ -21,17 +21,13 @@ class _ChangePasswordState extends State<ChangePassword> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-        
+
           children: [
             Container(margin:EdgeInsets.only(top: 40.0),child: Center(child: Text("Password Changed",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 25.0),))),
             SizedBox(height: 20.0,),
             Container(margin: EdgeInsets.only(bottom:5.0,top:15.0),child: Center(child: Text("Your Password has been changed",style: TextStyle(fontWeight: FontWeight.bold,color: hint,fontSize: 17.0),))),
             Container(margin: EdgeInsets.only(top:5.0,bottom: 40.0),child: Center(child: Text("successfully!",style: TextStyle(fontWeight: FontWeight.bold,color: hint,fontSize: 17.0),))),
-            Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0),color:Color(0xffffe617) ,),
-              margin: EdgeInsets.only(left:90.0,right: 90.0, top: 20.0,bottom: 40.0),
-
-              child:FlatButton(onPressed: (){},child:Center(child: Text("Login",style: TextStyle(color: font,fontSize: 20.0,fontWeight: FontWeight.bold),),),),)
+            Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0),color:Color(0xffffe617) ,),margin: EdgeInsets.only(left:90.0,right: 90.0, top: 20.0,bottom: 40.0), child:FlatButton(onPressed: (){},child:Center(child: Text("Login",style: TextStyle(color: font,fontSize: 20.0,fontWeight: FontWeight.bold),),),),)
           ],
       ) ,
       ),

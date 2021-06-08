@@ -3,6 +3,7 @@ import 'login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'new_password.dart';
 import 'changePassword.dart';
+import 'login_screen.dart';
 void main(){
   runApp(
     MaterialApp(
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:ChangePassword() ,
+      home:LoginScreen() ,
     );
   }
 }
