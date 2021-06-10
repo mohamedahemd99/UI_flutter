@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-const primary=Color(0xff3bbdbf);
-const font=Color(0xff1a2e43);
-const hint=Color(0xff808182);
+import 'const.dart';
+import 'login_screen.dart';
 class NewPassword extends StatefulWidget {
   @override
   _NewPasswordState createState() => _NewPasswordState();
@@ -20,33 +19,27 @@ class _NewPasswordState extends State<NewPassword> {
           children: [
             Expanded(
                 flex: 1,
-                child:Container(
-                  decoration: BoxDecoration(
-                      color:primary,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30.0),
-                        bottomRight: Radius.circular(30.0),
-                      )
-                  ),
-                  child: Container(child: Center(child: Image(image:AssetImage('images/WhatsApp Image 2021-06-07 at 11.07.10 PM.jpeg')),)),
-                )
+                child:TopLogo(),
             ),
             Expanded(
                 flex: 3,
                 child:Container(
+                  margin: EdgeInsets.only(left: 15.0,right: 15.0),
                   color: Colors.white,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch ,
                     children: [
                       Padding(padding: EdgeInsets.all(15.0),),
-                      Container(margin:EdgeInsets.only(left: 15.0),child: Text("New Password",style: TextStyle(color: font,fontSize: 30.0,fontWeight: FontWeight.bold,),)),
+                      Container(child: Text("New Password",style: fontTextStyle,)),
                       SizedBox( height: 15.0,),
-                      Container(margin:EdgeInsets.only(left: 15.0,bottom: 15.0),child: Text("Please enter new password",style: TextStyle(color: hint,fontSize: 15.0))),
-                      Container(margin:EdgeInsets.all(15.0),child: TextField(decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: hint),borderRadius: BorderRadius.all(Radius.circular(10.0))),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: hint),borderRadius: BorderRadius.all(Radius.circular(10.0))) ,prefixIcon: Icon(Icons.enhanced_encryption,color: font,),hintText: "Password*",),)),
-                      Container(margin:EdgeInsets.all(15.0),child:TextField(decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: hint),borderRadius: BorderRadius.all(Radius.circular(10.0))),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: hint),borderRadius: BorderRadius.all(Radius.circular(10.0))) ,prefixIcon: Icon(Icons.enhanced_encryption,color: font,),hintText: "Confirm Password*",),)),
-                      Container(height:80.0,margin:EdgeInsets.all(15.0),child: FlatButton(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),onPressed: (){}, child:Center(child: Text("Submit",style: TextStyle(color: font,fontSize: 20.0),)),color: Color(0xffffe617),), )
-
+                      Container(margin:EdgeInsets.only(bottom: 15.0),child: Text("Please enter new password",style:hintLoginTextStyle)),
+                      LoginTextField(icon: Icons.enhanced_encryption, hinttexts:"Password*"),
+                      SizedBox(height: 10.0,),
+                      LoginTextField(icon: Icons.enhanced_encryption, hinttexts:"Confirm Password*"),
+                      Buttom(text: "Submit", heigth:70.0,onPress:(){
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()));
+                      },)
                     ],
                   ),
                 )
@@ -57,3 +50,4 @@ class _NewPasswordState extends State<NewPassword> {
     );
   }
 }
+

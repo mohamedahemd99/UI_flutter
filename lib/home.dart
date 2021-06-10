@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-const primary=Color(0xff3bbdbf);
-const font=Color(0xff1a2e43);
-const hint=Color(0xff808182);
-const background=Color(0xffefefef);
-const inactiveColor=Colors.white70;
-const activeColor=Colors.white;
+import 'const.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -17,12 +13,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: background,
       appBar: AppBar(backgroundColor: background,elevation: 0.0,
+        leading:IconButton(onPressed: (){},icon: Icon(Icons.menu,color: primary,size: 35.0,)),
         title:  Container(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-               IconButton(onPressed: (){},icon: Icon(Icons.menu,color: primary,size: 35.0,)),
                IconButton(onPressed: (){},icon: Icon(Icons.notifications,color: primary,size: 35.0)),
             ],
           ),
@@ -38,146 +34,112 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(flex:1,child: Container(margin: EdgeInsets.only(right:10.0,left: 10.0,bottom: 10.0),child: TextField(decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent),borderRadius: BorderRadius.all(Radius.circular(20))),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent),borderRadius: BorderRadius.all(Radius.circular(20))),filled: true,fillColor: Colors.white,hintText: "search..",hintStyle:TextStyle(color: Color(0xffd8d8d8)),suffixIcon:Icon(Icons.search,color:primary,)),))),
+            Container(margin: EdgeInsets.only(right:10.0,left: 10.0,bottom: 10.0),child: TextField(decoration: InputDecoration(enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent),borderRadius: BorderRadius.all(Radius.circular(20))),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent),borderRadius: BorderRadius.all(Radius.circular(20))),filled: true,fillColor: Colors.white,hintText: "search..",hintStyle:TextStyle(color: Color(0xffd8d8d8)),suffixIcon:Icon(Icons.search,color:primary,)),)),
             Container(
               margin:  EdgeInsets.only(right:10.0,left: 10.0,bottom: 10.0),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child:  Image.asset("images/pp.jpg",fit: BoxFit.fill,height: 150.0,)
+                borderRadius: BorderRadius.circular(15.0),
+                child:  Image.asset("images/pp.jpg",fit: BoxFit.fill,height: 120.0,)
               ),
             ),
-            Container(margin: EdgeInsets.only(right:10.0,left: 10.0,bottom: 5.0),child: Row(crossAxisAlignment: CrossAxisAlignment.center,children: [Text("Categories",style:TextStyle(fontSize: 23.0,fontWeight: FontWeight.bold,color: font),),SizedBox(width: 200.0,),Text("View All",style: TextStyle(fontSize: 17.0,color: font),)],),),
-            Expanded(flex:2,child: Container(margin: EdgeInsets.only(right:10.0,left: 10.0),child:Row(children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(right: 10.0,left: 10.0),
-                  child: Column(mainAxisAlignment:MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(borderRadius: BorderRadius.circular(10.0),child: Image.asset("images/nn.jpg",fit: BoxFit.fitHeight,)),
-                      Text("Doctors",style: TextStyle(color: font,fontWeight: FontWeight.bold),)
-                    ],),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(right: 10.0,left: 10.0),
-                  child: Column(mainAxisAlignment:MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(borderRadius: BorderRadius.circular(10.0),child: Image.asset("images/analysis.jpg",fit: BoxFit.fitHeight,)),
-
-                      Text("Analysis",style: TextStyle(color: font,fontWeight: FontWeight.bold))
-                    ],),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(right: 10.0,left: 10.0),
-                  child: Column(mainAxisAlignment:MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(borderRadius: BorderRadius.circular(10.0),child: Image.asset("images/rays2.jpg",fit: BoxFit.fitHeight,)),
-                      SizedBox(height: 2.0,),
-                      Text("Rays",style: TextStyle(color: font,fontWeight: FontWeight.bold))
-                    ],),
-                ),
-              ),
-            ],
-            ),),
-            ),
-
-            Container(margin: EdgeInsets.only(right:10.0,left: 10.0,bottom: 5.0),child: Row(crossAxisAlignment: CrossAxisAlignment.center,children: [Text("Avaliable Doctors",style:TextStyle(fontSize: 23.0,fontWeight: FontWeight.bold,color: font),),SizedBox(width: 140.0,),Text("View All",style: TextStyle(fontSize: 17.0,color: font),)],),),
-            Expanded(flex:2,child: Container(margin: EdgeInsets.only(right:10.0,left: 10.0),child: Row(children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: activeColor,
-                    ),
-                    margin: EdgeInsets.only(right: 10.0,left: 10.0),
-                    child: Column(mainAxisAlignment:MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(child: Container(margin: EdgeInsets.all(3.0),child: ClipRRect(borderRadius:BorderRadius.circular(20.0),child: Image.asset("images/nn.jpg",fit: BoxFit.fill,)))),
-                        Text("Dr.Wade Warren",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),textAlign: TextAlign.center ),
-                        Text("Specialist Dentist",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0,),textAlign: TextAlign.center,),
-                        Row(children: [
-                          Icon(Icons.star,color: Colors.yellow,),
-                          Text("4.5",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),),
-                          Text("(120 Reviews)",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),)
-                        ],)
-                      ],),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: activeColor,
-                    ),
-                    margin: EdgeInsets.only(right: 10.0,left: 10.0),
-                    child: Column(mainAxisAlignment:MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(child: Container(margin: EdgeInsets.all(3.0),child: ClipRRect(borderRadius:BorderRadius.circular(20.0),child: Image.asset("images/mrs.jpg",fit: BoxFit.fill,)))),
-                        Text("Dr.Wade Warren",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),textAlign: TextAlign.center ),
-                        Text("Specialist Dentist",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0,),textAlign: TextAlign.center,),
-                        Row(children: [
-                          Icon(Icons.star,color: Colors.yellow,),
-                          Text("4.5",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),),
-                          Text("(120 Reviews)",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),)
-                        ],)
-                      ],),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: activeColor,
-                    ),
-                    margin: EdgeInsets.only(right: 10.0,left: 10.0),
-                    child: Column(mainAxisAlignment:MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(child: Container(margin: EdgeInsets.all(3.0),child: ClipRRect(borderRadius:BorderRadius.circular(20.0),child: Image.asset("images/ll.jpg",fit: BoxFit.fill,)))),
-                        Text("Dr.Wade Warren",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),textAlign: TextAlign.center ),
-                        Text("Specialist Dentist",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0,),textAlign: TextAlign.center,),
-                        Row(children: [
-                          Icon(Icons.star,color: Colors.yellow,),
-                          Text("4.5",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),),
-                          Text("(120 Reviews)",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),)
-                        ],)
-                      ],),
-                  ),
-                ),
-              ),
-            ],
-            ),),
-            ),
-          Expanded(
-            child: Container(height: 50.0,decoration:BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0)),color: primary) ,margin: EdgeInsets.only(top: 10.0),width: double.infinity,child:
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            Expanded(flex:5,child: Column(
               children: [
-              BottomIcon(icon: Icons.home,color:activeColor ,text: "Home",),
-                SizedBox(width: 40.0,),
+                Container(margin: EdgeInsets.only(right:10.0,left: 10.0,bottom: 5.0),child: Row(crossAxisAlignment: CrossAxisAlignment.center,children: [Text("Categories",style:homeFontTextStyle,),SizedBox(width: 239.0,),Text("View All",style:homeHintTextStyle,)],),),
+                Container(margin: EdgeInsets.only(right:10.0,left: 10.0,bottom: 15.0,top: 15.0),child:Row(children: [
+                  Expanded(
+                    child: Category(image: "images/nn.jpg",marginRight:30.0,marginLeft: 0.0 ,),
+                  ),
+                  Expanded(
+                    child: Category(image:"images/analysis.jpg", marginLeft:15.0 , marginRight:15.0)
+                  ),
+                  Expanded(
+                    child: Category(image: "images/rays2.jpg", marginLeft: 30.0, marginRight: 0.0)
+                  ),
+                ],
+                ),),
 
-              BottomIcon(icon: Icons.group,text: "Community",color: inactiveColor,),
-                SizedBox(width: 40.0,),
+                Container(margin: EdgeInsets.only(right:10.0,left: 10.0),child: Row(crossAxisAlignment: CrossAxisAlignment.center,children: [Text("Avaliable Doctors",style:homeFontTextStyle,),SizedBox(width: 179.0,),Text("View All",style: homeHintTextStyle,)],),),
+              ],
+            )),
+            Expanded(flex:3,child: Container(margin: EdgeInsets.only(right:10.0,left: 10.0,),child: Row(children: [
+              Expanded(
+                child: AvaliableDoctorsIcon(image: "images/nn.jpg",marginRight: 20.0,marginLeft: 0.0,),
+              ),
+              Expanded(
+                child:AvaliableDoctorsIcon(image: "images/dr.jpg",marginLeft: 10.0,marginRight: 10.0,)
+              ),
+              Expanded(
+                child:AvaliableDoctorsIcon(image: "images/mrs.jpg",marginLeft: 20.0,marginRight: 0.0,)
+              ),
+            ],
+            ),),),
+          Container(height:50.0,decoration:BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0)),color: primary) ,margin: EdgeInsets.only(top: 10.0),width: double.infinity,child:
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+            BottomIcon(icon: Icons.home,color:activeColor ,text: "Home",),
+              SizedBox(width: 40.0,),
 
-              BottomIcon(icon: Icons.library_books,color: inactiveColor,text: "Appointment",),
-            ],),),
-          )
+            BottomIcon(icon: Icons.group,text: "Community",color: inactiveColor,),
+              SizedBox(width: 40.0,),
+
+            BottomIcon(icon: Icons.library_books,color: inactiveColor,text: "Appointment",),
+          ],),)
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Category extends StatelessWidget {
+
+  Category({@required this.image,@required this.marginLeft,@required this.marginRight});
+  double marginLeft;
+  double marginRight;
+  String image;
+  @override
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(right: marginRight,left: marginLeft),
+      child: Column(mainAxisAlignment:MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ClipRRect(borderRadius: BorderRadius.circular(10.0),child: Container(margin: EdgeInsets.only(bottom: 10.0),child: Image.asset(image,fit: BoxFit.fitHeight,))),
+          Text("Doctors",style: TextStyle(color: font,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)
+        ],),
+    );
+  }
+}
+
+class AvaliableDoctorsIcon extends StatelessWidget {
+  AvaliableDoctorsIcon({@required this.image,@required this.marginLeft,@required this.marginRight});
+  double marginLeft;
+  double marginRight;
+  String image;
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        margin: EdgeInsets.only(right: marginRight,left: marginLeft),
+        decoration: BoxDecoration(
+          color: activeColor,
+        ),
+        child: Column(mainAxisAlignment:MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(child: Container(margin: EdgeInsets.all(3.0),child: ClipRRect(borderRadius:BorderRadius.circular(10.0),child: Image.asset(image,fit: BoxFit.fill,)))),
+            Text("Dr.Wade Warren",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),textAlign: TextAlign.center ),
+            Text("Specialist Dentist",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0,),textAlign: TextAlign.center,),
+            Row(children: [
+              Icon(Icons.star,color: Colors.yellow,),
+              Text("4.5",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),),
+              Text("(120 Reviews)",style: TextStyle(color: font,fontWeight: FontWeight.bold,fontSize: 10.0),)
+            ],)
+          ],),
       ),
     );
   }
