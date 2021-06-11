@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'const.dart';
 import 'home.dart';
 import 'changePassword.dart';
+import 'doctor_screen.dart';
 import 'new_password.dart';
 class LoginScreen extends StatefulWidget {
   @override
@@ -40,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       LoginTextField(icon: Icons.call, hinttexts: "Mobile Number"),
                       LoginTextField(icon: Icons.enhanced_encryption,hinttexts: "Password*",),
                       GestureDetector(onTap: (){Navigator.push(context,MaterialPageRoute(builder: (context)=>ChangePassword()));},child: Container(child: Text("Forget Password",style: hintLoginTextStyle,textAlign: TextAlign.right,),)),
-                      Buttom(text: "Login",heigth: 40.0,onPress:(){Navigator.push(context,MaterialPageRoute(builder: (context) => HomeScreen()));}),
+                      Buttom(textfont: font,color: yellowButtom,text: "Login",heigth: 40.0,onPress:(){Navigator.push(context,MaterialPageRoute(builder: (context) => HomeScreen()));}),
                       SizedBox(height: 10.0,),
                       Container(child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             SignInImage(image1:"images/google.jpg" )
                             ],),
                           Container(margin:EdgeInsets.only(bottom: 10.0),child: Text("Don't have an account?",style: loginTextStyle,textAlign: alignmentLoginTextStyle,)),
-                          Buttom(text: "Create an account",heigth: 40.0,onPress: (){
+                          Buttom(textfont: font,color: yellowButtom,text: "Create an account",heigth: 40.0,onPress: (){
                             Navigator.push(context,MaterialPageRoute(builder: (context)=>NewPassword()));
                           },),
                         ],

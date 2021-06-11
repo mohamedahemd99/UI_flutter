@@ -37,7 +37,7 @@ class _NewPasswordState extends State<NewPassword> {
                       LoginTextField(icon: Icons.enhanced_encryption, hinttexts:"Password*"),
                       SizedBox(height: 10.0,),
                       LoginTextField(icon: Icons.enhanced_encryption, hinttexts:"Confirm Password*"),
-                      Buttom(text: "Submit", heigth:70.0,onPress:(){
+                      Buttom(textfont: font,color:yellowButtom ,text: "Submit", heigth:70.0,onPress:(){
                         Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()));
                       },)
                     ],

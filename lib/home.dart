@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ui_flutter/doctor_screen.dart';
 import 'const.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -66,7 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: AvaliableDoctorsIcon(image: "images/nn.jpg",marginRight: 20.0,marginLeft: 0.0,),
               ),
               Expanded(
-                child:AvaliableDoctorsIcon(image: "images/dr.jpg",marginLeft: 10.0,marginRight: 10.0,)
+                child:GestureDetector(onTap:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorScreen(),));
+                },child: AvaliableDoctorsIcon(image: "images/ww.jpg",marginLeft: 10.0,marginRight: 10.0,))
               ),
               Expanded(
                 child:AvaliableDoctorsIcon(image: "images/mrs.jpg",marginLeft: 20.0,marginRight: 0.0,)

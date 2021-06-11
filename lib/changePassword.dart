@@ -62,7 +62,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     LoginTextField(icon: Icons.enhanced_encryption, hinttexts:"New Password*"),
                     LoginTextField(icon: Icons.enhanced_encryption, hinttexts:"New Password*"),
 
-                    Buttom(text: "Change Password",heigth: 60,onPress: (){
+                    Buttom(textfont: font,color: yellowButtom,text: "Change Password",heigth: 60,onPress: (){
                       showAlertDialog(context);
                     },),
 

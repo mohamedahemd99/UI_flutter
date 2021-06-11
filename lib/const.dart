@@ -13,9 +13,11 @@ const activeColor=Colors.white;
 const fontTextStyle=TextStyle(fontSize: 25.0,fontWeight: FontWeight.bold,color: font);
 const homeFontTextStyle=TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: font);
 const homeHintTextStyle= TextStyle(fontSize: 15.0,color: font);
+const fontDoctorTextStyle=TextStyle(color: font,fontSize: 18.0,fontWeight:FontWeight.bold );
+const yellowButtom=Color(0xffffe617);
+
 
 class LoginTextField extends StatelessWidget {
-
   LoginTextField({@required this.icon,@required this.hinttexts});
   String hinttexts;
   IconData icon;
@@ -56,10 +58,12 @@ class SignInImage extends StatelessWidget {
 }
 
 class Buttom extends StatelessWidget {
-  Buttom ({@required this.text,@required this.heigth,@required this.onPress}) ;
+  Buttom ({@required this.text,@required this.heigth,@required this.onPress,@required this.color,@required this.textfont}) ;
   String text;
   double heigth;
   Function onPress;
+  Color color;
+  Color textfont;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +71,7 @@ class Buttom extends StatelessWidget {
       Container(
           height: heigth,
           margin:EdgeInsets.only(top: 20.0) ,
-          child: FlatButton(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),onPressed: onPress, child:Center(child: Text(text,style: TextStyle(color: font,fontSize: 20.0),)),color: Color(0xffffe617),)),
+          child: FlatButton(shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),onPressed: onPress, child:Center(child: Text(text,style: TextStyle(color: textfont,fontSize: 20.0),)),color: color,)),
     ],);
   }
 }
@@ -88,3 +92,89 @@ class TopLogo extends StatelessWidget {
   }
 }
 
+
+class TimeButtom extends StatelessWidget {
+TimeButtom({@required this.boxColor,@required this.fontBoxColor});
+Color boxColor;
+Color fontBoxColor;
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(child: Container(
+      margin: EdgeInsets.only(left: 15.0),
+      height: 30.0,
+      decoration: BoxDecoration(color: boxColor,
+        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+      ),
+      child: Center(child: Text("08:00 PM",style: TextStyle(color: fontBoxColor,fontWeight: FontWeight.bold))),
+    ));
+  }
+}
+
+class DayButtom extends StatelessWidget {
+  DayButtom({@required this.boxcolor,@required this.day,@required this.dayno,@required this.font});
+  Color boxcolor;
+  String day;
+  String dayno;
+  Color font;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(child: Container(
+      margin: EdgeInsets.only(left: 15.0,right: 15.0,bottom: 15.0),
+      decoration: BoxDecoration(
+          color: boxcolor,
+          borderRadius: BorderRadius.all(Radius.circular(5.0))
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [Text(day,style: TextStyle(color: font,fontWeight: FontWeight.bold),),SizedBox(height: 10.0,),Text(dayno,style: TextStyle(color: font,fontWeight: FontWeight.bold))],
+        ),
+      ),
+    ));
+  }
+}
+
+class TextWeight extends StatelessWidget {
+
+  TextWeight({@required this.bigFont,@required this.smallFont});
+  String bigFont;
+  String smallFont;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(bigFont,style:TextStyle(color: font,fontSize: 18.0,fontWeight:FontWeight.bold )),
+          Text(smallFont,style: TextStyle(color: hint,fontSize: 15.0,),),
+        ],),);
+  }
+}
+
+class DoctorDetailsButtom extends StatelessWidget {
+  DoctorDetailsButtom({@required this.lable,@required this.icon,@required this.exp});
+
+  String lable;
+  IconData icon;
+  String exp;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(15.0),
+      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          color: activeColor
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+      Container(
+          margin: EdgeInsets.only(left:10.0,top: 10.0,bottom: 5.0),
+          child: Text(lable)),
+      Container(margin: EdgeInsets.only(left:10.0,bottom: 10.0),child: Row(children: [Icon(icon,color: Colors.orangeAccent,),Text(exp)],))
+    ],),);
+  }
+}
