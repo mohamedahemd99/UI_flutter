@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'searchMap.dart';
 const primary=Color(0xff3bbdbf);
 const font=Color(0xff1a2e43);
 const hint=Color(0xff808182);
@@ -15,8 +16,14 @@ const homeFontTextStyle=TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,col
 const homeHintTextStyle= TextStyle(fontSize: 15.0,color: font);
 const fontDoctorTextStyle=TextStyle(color: font,fontSize: 18.0,fontWeight:FontWeight.bold );
 const yellowButtom=Color(0xffffe617);
+const searchPageColor=Color(0xff514de2);
+const bottomIconSearch=Color(0xff8fa7ef);
+const String firstImageUrl="images/nn.jpg";
+const String secondImageUrl="images/ll.jpg";
+const String thirdImageUrl="images/ww.jpg";
+const String fourthImageUrl="images/mrs.jpg";
 
-
+//textfield
 class LoginTextField extends StatelessWidget {
   LoginTextField({@required this.icon,@required this.hinttexts});
   String hinttexts;
@@ -41,7 +48,7 @@ class LoginTextField extends StatelessWidget {
             hintText: hinttexts,hintStyle:hintLoginTextFieldStyle ),),);
   }
 }
-
+//images for create account and sign in
 class SignInImage extends StatelessWidget {
   SignInImage({@required this.image1 });
   String image1;
@@ -56,7 +63,7 @@ class SignInImage extends StatelessWidget {
     );
   }
 }
-
+//buttoms
 class Buttom extends StatelessWidget {
   Buttom ({@required this.text,@required this.heigth,@required this.onPress,@required this.color,@required this.textfont}) ;
   String text;
@@ -75,6 +82,7 @@ class Buttom extends StatelessWidget {
     ],);
   }
 }
+//logo
 class TopLogo extends StatelessWidget {
 
   @override
@@ -92,7 +100,7 @@ class TopLogo extends StatelessWidget {
   }
 }
 
-
+//doctor time table
 class TimeButtom extends StatelessWidget {
 TimeButtom({@required this.boxColor,@required this.fontBoxColor});
 Color boxColor;
@@ -110,6 +118,7 @@ Color fontBoxColor;
   }
 }
 
+//date bottoom
 class DayButtom extends StatelessWidget {
   DayButtom({@required this.boxcolor,@required this.day,@required this.dayno,@required this.font});
   Color boxcolor;
@@ -136,7 +145,7 @@ class DayButtom extends StatelessWidget {
     ));
   }
 }
-
+//small & big text in doctor's profile
 class TextWeight extends StatelessWidget {
 
   TextWeight({@required this.bigFont,@required this.smallFont});
@@ -154,7 +163,7 @@ class TextWeight extends StatelessWidget {
         ],),);
   }
 }
-
+//doctor details in doctor's profile
 class DoctorDetailsButtom extends StatelessWidget {
   DoctorDetailsButtom({@required this.lable,@required this.icon,@required this.exp});
 
@@ -178,3 +187,80 @@ class DoctorDetailsButtom extends StatelessWidget {
     ],),);
   }
 }
+//doctor card in search
+class DoctorSearchDetails extends StatelessWidget {
+  DoctorSearchDetails({@required this.imageURL,@required this.name ,@required this. onpress});
+  String imageURL;
+  String name;
+  Function onpress;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onpress,
+      child: Container(
+        margin: EdgeInsets.only(right: 5.0,left: 5.0),
+          height: 155.0,
+          width: 140.0,
+          decoration: BoxDecoration(
+              color: activeColor,
+              borderRadius: BorderRadius.all(Radius.circular(15.0))
+          ),
+          child: Container(
+            margin: EdgeInsets.all(7.0),
+
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Icon(Icons.star,color: Colors.deepOrange,size: 15.0,),
+                      Text("5.0",style: TextStyle(color: font),),
+                    ],
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: background,
+                    height: 65.0,
+                    width: 65.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                      child: Container(
+                        color:primary ,
+                        height: 60.0,
+                        width: 60.0,
+                        child: Image.asset(imageURL,fit: BoxFit.fill,),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(margin: EdgeInsets.only(top: 5.0,bottom: 10.0),child: Text(name,textAlign:TextAlign.center,style: TextStyle(color: font), )),
+                Container(
+                  decoration: BoxDecoration(
+                      color: activeColor,
+                    border: Border.all(
+                      style: BorderStyle.solid,color: background,width:2.0
+                    )
+
+
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Icon(Icons.phone,color: searchPageColor,),Text("0121412552")],
+                  ),
+                )
+              ],
+            ),
+          )
+      ),
+    );
+  }
+}
+//scroll list

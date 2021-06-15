@@ -5,6 +5,7 @@ import 'new_password.dart';
 import 'changePassword.dart';
 import 'home.dart';
 import 'doctor_screen.dart';
+import 'searchMap.dart';
 void main(){
   runApp(
     MaterialApp(
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginScreen(),
+      home: SearchMap(),
     );
   }
 }
