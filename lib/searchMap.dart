@@ -13,13 +13,19 @@ class SearchMap extends StatefulWidget {
 class _SearchMapState extends State<SearchMap> {
   var myMarkers = HashSet<Marker>();
   BitmapDescriptor customMarker,customMarker1,customMarker2,customMarker3;
+  GoogleMapController _mapController;
+  double lat,long;
+  getDocLocation({@required lat, @required long}){
+    _mapController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target:LatLng(lat,long),zoom: 10.0 )));
+  }
+
   getCustomMarker()async{
     customMarker=await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, firstImageUrl);
     customMarker1=await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, secondImageUrl);
     customMarker2=await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, thirdImageUrl);
     customMarker3=await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, fourthImageUrl);
-
   }
+
   @override
   void initState() {
     super.initState();
@@ -49,19 +55,18 @@ class _SearchMapState extends State<SearchMap> {
             children: [
 
               GoogleMap(
-
                 zoomControlsEnabled: false,
                 padding: EdgeInsets.all(10.0),
-                initialCameraPosition: CameraPosition(
-                  target:LatLng(31.2556260, 29.9866080 ), zoom: 6),
-                onMapCreated:(controller) {
+                initialCameraPosition: CameraPosition(target:LatLng(31.2556260, 29.9866080 ), zoom: 6),
+                onMapCreated:(GoogleMapController controller) {
+                  _mapController=controller;
                   setState(() {
                     myMarkers.add(
                         Marker(onTap: (){
                           Navigator.push(context,MaterialPageRoute(builder: (context)=>DoctorScreen()));
                         },
                           markerId: MarkerId("1"),
-                          position: LatLng(30.2556260, 29.9866080  ),
+                          position: LatLng(30.2556260, 29.9866080),
                           infoWindow:InfoWindow(
                               title: "",
                               snippet:""
@@ -138,7 +143,8 @@ class _SearchMapState extends State<SearchMap> {
 
               ),
               Container(
-                margin: EdgeInsets.only(top: 280.0),
+                height: 200.0,
+                margin: EdgeInsets.only(top: 340.0),
               child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
@@ -146,12 +152,25 @@ class _SearchMapState extends State<SearchMap> {
                     children: <Widget>[
                       DoctorSearchDetails(imageURL: firstImageUrl,name: "Urologist",onpress: (){
                         setState(() {
+                          getDocLocation(lat: 30.2556260,long:29.9866080 );
                         });
 
                       },),
-                      DoctorSearchDetails(imageURL: secondImageUrl,name: "Orthopaedic",onpress: (){},),
-                      DoctorSearchDetails(imageURL: thirdImageUrl,name: "Dentist",onpress: (){},),
-                      DoctorSearchDetails(imageURL: fourthImageUrl,name: "Neurologist",onpress: (){},),
+                      DoctorSearchDetails(imageURL: secondImageUrl,name: "Orthopaedic",onpress: (){
+                        setState(() {
+                          getDocLocation(lat:29.2556260 ,long:29.9866080 );
+                        });
+                      },),
+                      DoctorSearchDetails(imageURL: thirdImageUrl,name: "Dentist",onpress: (){
+                        setState(() {
+                          getDocLocation(lat:28.2556260,long:29.9866080  );
+                        });
+                      },),
+                      DoctorSearchDetails(imageURL: fourthImageUrl,name: "Neurologist",onpress: (){
+                        setState(() {
+                          getDocLocation(lat: 31.2556260,long:29.9866080 );
+                        });
+                      },),
 
                     ]
                 )
@@ -187,13 +206,9 @@ class _SearchMapState extends State<SearchMap> {
                   ),
                 ],
               ),
-
-
             ],
           ),
         )
-
-
     );
   }
 }
